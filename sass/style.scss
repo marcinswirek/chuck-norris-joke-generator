@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans|Quicksand");
+
+body {
+  font-family: "Quicksand";
+  text-align: center;
+  //background-color: gray;
+}
+
+span {
+  font-family: "Quicksand";
+}
+
+.joke-btn {
+  margin-top: 100px;
+  border: none;
+  background-color: cyan;
+  width: 10%;
+  height: 40px;
+  border-radius: 3px;
+
+  &:hover {
+    box-shadow: 0 0 6px black;
+    cursor: pointer;
+  }
+}
