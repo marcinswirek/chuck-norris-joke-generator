@@ -1,19 +1,41 @@
+//JS
+
+// $(function() {
+//   var url = "http://api.icndb.com/jokes/random";
+//   var jokeText = document.getElementById("joke-text");
+//   var button = document.getElementById("random-joke");
+
+//   button.addEventListener("click", function() {
+//     getJoke();
+//   });
+
+//   function getJoke() {
+//     var xhr = new XMLHttpRequest();
+//     xhr.open("GET", url);
+//     xhr.addEventListener("load", function() {
+//       var response = JSON.parse(xhr.response);
+//       jokeText.innerHTML = response.value.joke;
+//     });
+//     xhr.send();
+//   }
+// });
+
+//jQuery
+
 $(function() {
   var url = "http://api.icndb.com/jokes/random";
-  var jokeText = document.getElementById("joke-text");
-  var button = document.getElementById("random-joke");
-
-  button.addEventListener("click", function() {
+  var $button = $("#random-joke").click(function() {
     getJoke();
   });
+  var $jokeText = $("#joke-text");
 
   function getJoke() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.addEventListener("load", function() {
-      var response = JSON.parse(xhr.response);
-      jokeText.innerHTML = response.value.joke;
+    $.ajax({
+      method: "GET",
+      url: url,
+      success: function(res) {
+        $jokeText.text(res.value.joke);
+      }
     });
-    xhr.send();
   }
 });
